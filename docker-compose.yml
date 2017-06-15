@@ -1,0 +1,13 @@
+version: "3"
+services:
+  webserver:
+    restart: always
+    ports:
+      - 80:80
+    build:
+      context:  .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./php.ini:/usr/local/etc/php/php.ini
+      - ./apache-sites:/etc/apache2/sites-enabled
+      - /var/www/html:/var/www/html
